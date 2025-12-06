@@ -5,6 +5,28 @@
   box-sizing: border-box;
 }
 
+/* to fix the overlapping of navigation bar */
+html {
+  scroll-behavior: smooth;   /* smooth scrolling */
+  scroll-padding-top: 70px;  /* height of your fixed navbar */
+}
+
+.profile-avatar-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit:cover;
+    border: 4px solid #00aaff;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -49,7 +71,7 @@ body {
 .logo-text {
   font-weight: 600;
   letter-spacing: 0.12em;
-  font-size: 30 px;
+  font-size:  px;
   /* text-transform: uppercase; */
   color: #111827;
 }
@@ -197,6 +219,10 @@ body {
 .section {
   padding: 3rem 0;
 }
+.sectionteam {
+  padding-top: 3rem ;
+
+}
 
 .section-alt {
   padding: 3rem 0;
@@ -276,12 +302,36 @@ body {
   gap: 1.3rem;
 }
 
-.team-card {
+.team-grid span{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 255px));
+  gap: 1.3rem;
+  justify-content: center;  
+
+  
+}
+
+.team-card{
   background: #ffffff;
   border-radius: 0.9rem;
   padding: 1.1rem;
   border: 1px solid #e5e7eb;
   text-align: center;
+}
+.team-more {
+  width: 120px;
+  padding: 0.4rem 0;
+  margin: 1.2rem auto 0;     
+  background: #ffffff;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.team-more:hover {
+  background: #f3f4f6;
 }
 
 .team-card h3 {
