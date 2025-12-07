@@ -1,0 +1,382 @@
+/* --- Paste your Theme Variables Here --- */
+
+:root {
+    --primary-blue: #2563eb;
+    --light-blue: #00aaff;
+    --light-blue-shadow: rgba(0, 170, 255, 0.4);
+
+    --bg-main: #f5f7fb;
+    --bg-white: #ffffff;
+    --bg-light: #f9fafb;
+    --bg-hero-1: #e5f0ff;
+
+    --text-dark: #111827;
+    --text-gray: #4b5563;
+    --text-muted: #6b7280;
+
+    --border-light: #e5e7eb;
+    --border-input: #d1d5db;
+    --border-outline: #cbd5f5;
+
+    --hover-light: #f3f4f6;
+
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 0 15px var(--light-blue-shadow);
+
+    --transition-speed: 0.3s;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root.dark {
+    --primary-blue: #3b82f6;
+    --light-blue: #38bdf8;
+    --light-blue-shadow: rgba(56, 189, 248, 0.5);
+
+    --bg-main: #0f172a;
+    --bg-white: #1e293b;
+    --bg-light: #1e293b;
+    --bg-hero-1: #1e293b;
+
+    --text-dark: #f8fafc;
+    --text-gray: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --border-light: #475569;
+    --border-input: #64748b;
+    --border-outline: #3b82f6;
+
+    --hover-light: #334155;
+
+    --shadow-card: rgba(0, 0, 0, 0.35);
+
+
+}
+
+
+
+/* Smooth transition between themes */
+body,
+* {
+    transition: background var(--transition-speed) ease,
+        color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease,
+        /* box-shadow var(--transition-speed) ease; */
+}
+
+
+
+/* --- Global Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-main);
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Default: light mode = show light logo */
+.dark-logo {
+    display: none;
+}
+
+/* When theme is dark → hide light logo, show dark logo */
+:root.dark .light-logo {
+    display: none;
+}
+
+:root.dark .dark-logo {
+    display: inline;
+}
+
+
+/* --- Navigation (Simple imitation) --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* .logo-text {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-dark);
+} */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+.contact-btn {
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* --- Header Section --- */
+.page-header {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(180deg, var(--bg-hero-1) 0%, var(--bg-main) 100%);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.page-header .subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* --- Main Layout --- */
+.navcontainer {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 2rem; */
+}
+
+.team-section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-blue);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Detailed Card (Faculty/President) --- */
+/* This adapts the wide Kronos content to DVN style */
+.detailed-card {
+    background: var(--bg-white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    border: 1px solid var(--border-light);
+    transition: transform var(--transition-speed);
+}
+
+.detailed-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image-wrapper {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg-white);
+    box-shadow: var(--shadow-glow);
+    /* The blue glow from DVN theme */
+}
+
+.card-content {
+    flex: 1;
+}
+
+.role-badge {
+    display: inline-block;
+    background: var(--bg-hero-1);
+    color: var(--primary-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-content .bio {
+    margin-bottom: 1.5rem;
+    color: var(--text-gray);
+}
+
+.achievements h4 {
+    font-size: 1rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.achievements ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.achievements ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+.achievements ul li::before {
+    content: '•';
+    color: var(--light-blue);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* --- Team Grid (Coordinators) --- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.member-card {
+    background: var(--bg-white);
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-speed);
+
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.member-img-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--light-blue);
+    /* Blue border from DVN theme */
+    padding: 3px;
+    background: var(--bg-white);
+}
+
+.member-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.member-card .role {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-light);
+    margin-top: 2rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .detailed-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .achievements ul li {
+        text-align: left;
+    }
+
+    .profile-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+}
